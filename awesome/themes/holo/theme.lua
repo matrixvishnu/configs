@@ -17,8 +17,8 @@ local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/holo/icons"
 theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/holo/wall.png"
-theme.font                                      = "Roboto Bold 10"
-theme.taglist_font                              = "Roboto Condensed Regular 8"
+theme.font                                      = "Ubuntu Nerd Font 10"
+theme.taglist_font                              = "Ubuntu Nerd Font 11"
 theme.fg_normal                                 = "#FFFFFF"
 theme.fg_focus                                  = "#0099CC"
 theme.bg_focus                                  = "#303030"
@@ -38,6 +38,7 @@ theme.awesome_icon                              = theme.icon_dir .. "/awesome_ic
 theme.awesome_icon_launcher                     = theme.icon_dir .. "/awesome_icon.png"
 theme.taglist_squares_sel                       = theme.icon_dir .. "/square_sel.png"
 theme.taglist_squares_unsel                     = theme.icon_dir .. "/square_unsel.png"
+theme.widget_mem                                = theme.icon_dir .. "/icons/mem.png"
 theme.spr_small                                 = theme.icon_dir .. "/spr_small.png"
 theme.spr_very_small                            = theme.icon_dir .. "/spr_very_small.png"
 theme.spr_right                                 = theme.icon_dir .. "/spr_right.png"
@@ -120,7 +121,13 @@ theme.cal = lain.widget.cal({
         font = "Monospace 10"
     }
 })
-
+--MEM
+local memicon = wibox.widget.imagebox(theme.widget_mem)
+local mem = lain.widget.mem({
+    settings = function()
+        widget:set_markup(markup.font(theme.font, "" .. mem_now.used .. "MB "))
+    end
+})
 -- Mail IMAP check
 --[[ commented because it needs to be set before use
 theme.mail = lain.widget.imap({
@@ -202,10 +209,14 @@ end)))
 -- Battery
 local bat = lain.widget.bat({
     settings = function()
-        bat_header = " Bat "
-        bat_p      = bat_now.perc .. " "
+        bat_header = "   "
+        bat_p      = " " .. bat_now.perc
         if bat_now.ac_status == 1 then
-            bat_p = bat_p .. "Plugged "
+            -- bat_p = bat_p .. "  "
+            bat_p      = "  " .. bat_now.perc
+        else 
+            -- bat_p = bat_p .. "   "
+            bat_p      = "   " .. bat_now.perc
         end
         widget:set_markup(markup.font(theme.font, markup(blue, bat_header) .. bat_p))
     end
@@ -258,10 +269,12 @@ local netbg = wibox.container.background(net.widget, theme.bg_focus, gears.shape
 local networkwidget = wibox.container.margin(netbg, 0, 0, 5, 5)
 
 -- Weather
+local weather_icon =wibox.widget.textbox("")
 theme.weather = lain.widget.weather({
-    city_id = 2643743, -- placeholder (London)
-    notification_preset = { font = "Monospace 9", position = "bottom_right" },
+    city_id = 1269843, -- placeholder (Hyderabad)
+    notification_preset = { font = theme.font, position = "bottom_right" },
 })
+
 
 -- Launcher
 local mylauncher = awful.widget.button({ image = theme.awesome_icon_launcher })
@@ -327,19 +340,57 @@ function theme.at_screen_connect(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             first,
+            mylauncher,
             s.mytag,
             spr_small,
-            s.mylayoutbox,
+            -- s.mylayoutbox,
             spr_small,
-            s.mypromptbox,
+      --      s.mypromptbox,
         },
-        nil, -- Middle widget
+         -- Middle widget
+        s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             --theme.mail.widget,
-            --bat.widget,
-            spr_right,
+            -- bat.widget,
+            -- spr_right,
+            -- musicwidget,
+            -- bar,
+            -- prev_icon,
+            -- next_icon,
+            -- stop_icon,
+            -- play_pause_icon,
+            -- bar,
+            -- mpd_icon,
+            -- bar,
+            -- spr_very_small,
+            -- volumewidget,
+            spr_left,
+            s.mylayoutbox,
+        },
+    }
+
+    -- Create the bottom wibox
+    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = 25 })
+    s.borderwibox = awful.wibar({ position = "bottom", screen = s, height = 1, bg = theme.fg_focus, x = 0, y = 33})
+
+    -- Add widgets to the bottom wibox
+    s.mybottomwibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+           s.mypromptbox,
+            --mylauncher,
+        },
+--        s.mytasklist, -- Middle widget
+--        nill
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            wibox.widget.systray(),
+            spr_bottom_right,
+            bat.widget,
+            spr_bottom_right,
             musicwidget,
             bar,
             prev_icon,
@@ -352,30 +403,17 @@ function theme.at_screen_connect(s)
             spr_very_small,
             volumewidget,
             spr_left,
-        },
-    }
-
-    -- Create the bottom wibox
-    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = 0, height = 32 })
-    s.borderwibox = awful.wibar({ position = "bottom", screen = s, height = 1, bg = theme.fg_focus, x = 0, y = 33})
-
-    -- Add widgets to the bottom wibox
-    s.mybottomwibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            spr_bottom_right,
             netdown_icon,
             networkwidget,
             netup_icon,
             bottom_bar,
             cpu_icon,
             cpuwidget,
+            bottom_bar,
+            memicon,
+            mem,
+            weather_icon,
+            theme.weather,
             bottom_bar,
             calendar_icon,
             calendarwidget,

@@ -274,7 +274,7 @@ wificon:connect_signal("button::press", function() awful.spawn(string.format("%s
 -- Weather
 theme.weather = lain.widget.weather({
     city_id = 2643743, -- placeholder (London)
-    notification_preset = { font = "Monospace 10" },
+    notification_preset = { font = theme.font },
     settings = function()
         units = math.floor(weather_now["main"]["temp"])
         widget:set_markup(" " .. markup.font(theme.font, units .. "°C") .. " ")

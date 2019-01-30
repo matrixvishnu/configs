@@ -16,18 +16,20 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
+-- theme.wallpaper                                 = "/home/vishnu/Pictures/wallpapers/budgie.png"
 theme.font                                      = "xos4 Terminus 9"
 theme.fg_normal                                 = "#DDDDFF"
-theme.fg_focus                                  = "#EA6F81"
+theme.fg_focus                                  = "#000000"
 theme.fg_urgent                                 = "#CC9393"
-theme.bg_normal                                 = "#1A1A1A"
-theme.bg_focus                                  = "#313131"
+theme.bg_normal                                 = "#263238"
+theme.bg_focus                                  = "#009688"
 theme.bg_urgent                                 = "#1A1A1A"
 theme.border_width                              = 1
-theme.border_normal                             = "#3F3F3F"
-theme.border_focus                              = "#7F7F7F"
+theme.border_normal                             = theme.bg_normal 
+theme.border_focus                              = theme.bg_focus
 theme.border_marked                             = "#CC9393"
-theme.tasklist_bg_focus                         = "#1A1A1A"
+-- theme.tasklist_bg_focus                         = "#1A1A1A"
+theme.tasklist_bg_focus                         = theme.bg_focus
 theme.titlebar_bg_focus                         = theme.bg_focus
 theme.titlebar_bg_normal                        = theme.bg_normal
 theme.titlebar_fg_focus                         = theme.fg_focus
@@ -343,4 +345,3 @@ function theme.at_screen_connect(s)
 end
 
 return theme
-

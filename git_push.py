@@ -15,6 +15,10 @@ print os.getcwd()
 print commit_msg
 git_add = "git add ."
 git_commit = "git commit -m "+commit_msg
+git_push = "git push -u origin master"
+
 os.system(git_add)
 os.system(git_commit)
+os.system(git_push)
+
 

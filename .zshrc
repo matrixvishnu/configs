@@ -1,14 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
   export ZSH=/home/vishnu/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="fino"
+# ZSH_THEME="fino"
 
+POWERLEVEL9K_MODE='nerdfont-complete'
+ZSH_THEME="powerlevel9k/powerlevel9k"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -83,3 +85,57 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+################### ENABLE VIM MODE ON COMMMAND LINE  ##########
+
+####################POWER LEVEL 9 THEME CONF################
+POWERLEVEL9K_STATUS_VERBOSE=true
+POWERLEVEL9K_DIR_OMIT_FIRST_CHARACTER=true
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=6
+POWERLEVEL9K_SHOW_CHANGESET=true
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
+
+
+
+# Custom command to get pylint logs without re-running
+
+# Colors
+POWERLEVEL9K_DIR_HOME_FOREGROUND="118"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="grey0"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="160"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="grey0"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="blue"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="grey0"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="red"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="grey0"
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND="yellow"
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND="grey0"
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="yellow"
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="grey0"
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="yellow"
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="grey0"
+POWERLEVEL9K_PYENV_FOREGROUND="blue"
+POWERLEVEL9K_PYENV_BACKGROUND="grey0"
+POWERLEVEL9K_STATUS_FOREGROUND="red"
+POWERLEVEL9K_STATUS_BACKGROUND="grey0"
+POWERLEVEL9K_CONTEXT_BACKGROUND="grey0"
+POWERLEVEL9K_OS_ICON_BACKGROUND='none'
+POWERLEVEL9K_OS_ICON_FOREGROUND='089'
+POWERLEVEL9K_TIME_BACKGROUND='none'
+POWERLEVEL9K_TIME_FOREGROUND='049'
+
+# Prompts
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('os_icon' 'context' 'dir' 'vcs'
+'dir_writable' )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('time')
+
+
+# `Pyenv` is deprecated, use `python -v` instead
+
+

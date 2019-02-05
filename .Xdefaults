@@ -6,9 +6,9 @@ urxvt.scrollBar: false
 !! Font prefferenes
 ! urxvt.font: xft:DejaVu Sans Mono:pixelsize=13
 ! urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:weight=bold
-
+! URxvt.font: xft:Meslo LGM Nerdfont:size=12
 URxvt.font: xft:UbuntuMono Nerd Font Mono:style=Regular:size=12
-URxvt.boldFont: xft:Ubuntu Mono:style=Regular:size=12
+URxvt.boldFont: xft:UbuntuMono Nerd Font:style=Regular:size=12
 urxvt.letterSpace: 0
 !! Larger history limit
 urxvt.saveLines: 1000000

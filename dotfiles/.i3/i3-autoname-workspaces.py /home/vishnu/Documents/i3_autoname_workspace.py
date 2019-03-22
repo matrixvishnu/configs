@@ -43,8 +43,6 @@ import sys
 #   http://fortawesome.github.io/Font-Awesome/icons/
 FA_CALCULATOR = '\uf1ec'
 FA_CHROME = '\uf268'
-FA_CHROME_ALT = '\uf7ae'
-FA_TORRENTS = '\uf847'
 FA_COMMENTS_O = '\uf0e6'
 FA_CODE = '\uf121'
 FA_FILE_PDF_O = '\uf1c1'
@@ -72,15 +70,11 @@ FA_CLOCK_O = '\uf017'
 WINDOW_ICONS = {
     'tilix': FA_TERMINAL,
     'st-256color': FA_TERMINAL,
-    'st': FA_TERMINAL,
-    'tixati' : FA_TORRENTS,
-    'Tixati' : FA_TORRENTS,
     'Galculator': FA_CALCULATOR,
     'Franz': FA_COMMENTS_O,
     'Telegram': FA_TELEGRAM,
     'TelegramDesktop': FA_TELEGRAM,
     'google-chrome': FA_CHROME,
-    'Chromium-browser': FA_CHROME_ALT,
     'chromium': FA_CHROME,
     'vivaldi-stable': FA_CHROME,
     'vim': FA_CODE,

@@ -7,9 +7,12 @@ sep = " "
 dirs = {
 "zsh_dir"       : home+".zsh/",
 "vim_dir"       : home+".vim/",
+"nvim_dir"      : home+".config/nvim/",
 "awesome_dir"   : home+".config/awesome/",
 "oh_my_zsh_dir" : home+".oh-my-zsh/",
 "i3_dir"        : home+".config/i3/",
+"mutt_dir"      : home+".config/mutt/",
+"st_dir"        : home+"st/",
 "dotfiles_dir"  : home+"dotfiles/"}
 files = {
 "xdefaults"     : home+".Xdefaults",

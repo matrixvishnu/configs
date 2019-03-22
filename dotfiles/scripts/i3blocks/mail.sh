@@ -5,7 +5,7 @@
 # When clicked, brings up `neomutt`.
 
 case $BLOCK_BUTTON in
-	1) tilix -e neomutt ;;
+	1) st -e neomutt ;;
 	2) setsid $HOME/.config/mutt/etc/mailsync.sh >/dev/null & ;;
 	3) pgrep -x dunst >/dev/null && notify-send "<b>📬 Mail module:</b>
 - Shows unread mail

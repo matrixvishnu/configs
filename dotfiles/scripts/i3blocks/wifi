@@ -7,7 +7,7 @@ if [ $ENABLED ]
 then
     if [[ $CONNECTED ]]
     then
-        STRENGTH=$(nmcli device wifi | grep -e '*' | awk '{ if (! /SSID/) print $7 }')
+        STRENGTH=$(nmcli device wifi | grep -e '*' | awk '{ if (! /SSID/) print $8 }')
         echo " $STRENGTH% @$SSID"
     else
         echo " No Wifi"
@@ -19,6 +19,6 @@ then
 fi
 
 case $BLOCK_BUTTON in
-	1) termite -e nmtui ;;
+	1) st -e nmtui connect;;
 	3) sh ~/dotfiles/scripts/i3blocks/toggle_wifi.sh ;;
 esac

@@ -41,72 +41,76 @@ import sys
 # (WM_CLASS) names and the icons can be any text you want to display. However
 # most of these are character codes for font awesome:
 #   http://fortawesome.github.io/Font-Awesome/icons/
-FA_CALCULATOR = '\uf1ec'
-FA_CHROME = '\uf268'
-FA_CHROME_ALT = '\uf7ae'
-FA_TORRENTS = '\uf847'
-FA_COMMENTS_O = '\uf0e6'
-FA_CODE = '\uf121'
-FA_FILE_PDF_O = '\uf1c1'
+FA_CALCULATOR  = '\uf1ec'
+FA_ECLIPSE     = '\ue79e'
+FA_CHROME      = '\uf268'
+FA_CHROME_ALT  = '\uf7ae'
+FA_MIN         = '\ue786'
+FA_TORRENTS    = '\uf847'
+FA_COMMENTS_O  = '\uf0e6'
+FA_CODE        = '\uf121'
+FA_FILE_PDF_O  = '\uf1c1'
 FA_FILE_TEXT_O = '\uf0f6'
-FA_FILES_O = '\uf0c5'
-FA_FIREFOX = '\uf269'
-FA_ENVELOPE_O = '\uf0e0'
-FA_EYEDROPPER = '\uf1fb'
-FA_MUSIC = '\uf001'
-FA_PICTURE_O = '\uf03e'
-FA_KEY = '\uf084'
-FA_SPOTIFY = '\uf1bc'
-FA_TERMINAL = '\uf120'
-FA_CUBE = '\uf1b2'
+FA_FILES_O     = '\uf0c5'
+FA_FIREFOX     = '\uf269'
+FA_ENVELOPE_O  = '\uf0e0'
+FA_EYEDROPPER  = '\uf1fb'
+FA_MUSIC       = '\uf001'
+FA_PICTURE_O   = '\uf03e'
+FA_KEY         = '\uf084'
+FA_SPOTIFY     = '\uf1bc'
+FA_TERMINAL    = '\uf120'
+FA_CUBE        = '\uf1b2'
 FA_PLAY_CIRCLE = '\uf144'
-FA_DOWNLOAD = '\uf019'
-FA_VOLUME_UP = '\uf028'
-FA_STEAM = '\uf1b6'
-FA_PAINTBRUSH = '\uf1fc'
-FA_FILM = '\uf008'
-FA_MAP_O = '\uf278'
-FA_DATABASE = '\uf1c0'
-FA_TELEGRAM = '\uf2c6'
-FA_CLOCK_O = '\uf017'
+FA_DOWNLOAD    = '\uf019'
+FA_VOLUME_UP   = '\uf028'
+FA_STEAM       = '\uf1b6'
+FA_PAINTBRUSH  = '\uf1fc'
+FA_FILM        = '\uf008'
+FA_MAP_O       = '\uf278'
+FA_DATABASE    = '\uf1c0'
+FA_TELEGRAM    = '\uf2c6'
+FA_CLOCK_O     = '\uf017'
 WINDOW_ICONS = {
-    'tilix': FA_TERMINAL,
-    'st-256color': FA_TERMINAL,
-    'st': FA_TERMINAL,
-    'tixati' : FA_TORRENTS,
-    'Tixati' : FA_TORRENTS,
-    'Galculator': FA_CALCULATOR,
-    'Franz': FA_COMMENTS_O,
-    'Telegram': FA_TELEGRAM,
-    'TelegramDesktop': FA_TELEGRAM,
-    'google-chrome': FA_CHROME,
-    'Chromium-browser': FA_CHROME_ALT,
-    'chromium': FA_CHROME,
-    'vivaldi-stable': FA_CHROME,
-    'vim': FA_CODE,
-    'subl3': FA_CODE,
-    'spotify': FA_SPOTIFY,
-    'Firefox': FA_FIREFOX,
-    'Thunderbird': FA_ENVELOPE_O,
-    'neomutt': FA_ENVELOPE_O,
-    'libreoffice': FA_FILE_TEXT_O,
-    'feh': FA_PICTURE_O,
-    'gcolor2': FA_EYEDROPPER,
-    'atril': FA_FILE_PDF_O,
-    'spacefm': FA_FILES_O,
-    'gimp': FA_PAINTBRUSH,
-    'gimp-2.8': FA_PAINTBRUSH,
-    'inkscape': FA_PAINTBRUSH,
-    'VirtualBox': FA_CUBE,
-    'mpv': FA_PLAY_CIRCLE,
-    'Kodi': FA_PLAY_CIRCLE,
-    'transmission-gtk': FA_DOWNLOAD,
-    'pavucontrol': FA_VOLUME_UP,
-    'Steam': FA_STEAM,
-    'SWT': FA_DATABASE, #DBeaver changed its wm_class name?
-    'DBeaver': FA_DATABASE,
-    'KeeWeb': FA_KEY,
-    'pystopwatch': FA_CLOCK_O,
+    'tilix'            : FA_TERMINAL,
+    'st-256color'      : FA_TERMINAL,
+    'st'               : FA_TERMINAL,
+    'tixati'           : FA_TORRENTS,
+    'Tixati'           : FA_TORRENTS,
+    'Galculator'       : FA_CALCULATOR,
+    'Franz'            : FA_COMMENTS_O,
+    'Telegram'         : FA_TELEGRAM,
+    'TelegramDesktop'  : FA_TELEGRAM,
+    'google-chrome'    : FA_CHROME,
+    'min'              : FA_MIN,
+    'Chromium-browser' : FA_CHROME_ALT,
+    'chromium'         : FA_CHROME,
+    'vivaldi-stable'   : FA_CHROME,
+    'vim'              : FA_CODE,
+    'subl3'            : FA_CODE,
+    'spotify'          : FA_SPOTIFY,
+    'Firefox'          : FA_FIREFOX,
+    'Eclipse'          : FA_ECLIPSE,
+    'Thunderbird'      : FA_ENVELOPE_O,
+    'neomutt'          : FA_ENVELOPE_O,
+    'libreoffice'      : FA_FILE_TEXT_O,
+    'feh'              : FA_PICTURE_O,
+    'gcolor2'          : FA_EYEDROPPER,
+    'atril'            : FA_FILE_PDF_O,
+    'spacefm'          : FA_FILES_O,
+    'gimp'             : FA_PAINTBRUSH,
+    'gimp-2.8'         : FA_PAINTBRUSH,
+    'inkscape'         : FA_PAINTBRUSH,
+    'VirtualBox'       : FA_CUBE,
+    'mpv'              : FA_PLAY_CIRCLE,
+    'Kodi'             : FA_PLAY_CIRCLE,
+    'transmission-gtk' : FA_DOWNLOAD,
+    'pavucontrol'      : FA_VOLUME_UP,
+    'Steam'            : FA_STEAM,
+    'SWT'              : FA_DATABASE, #DBeaver changed its wm_class name?
+    'DBeaver'          : FA_DATABASE,
+    'KeeWeb'           : FA_KEY,
+    'pystopwatch'      : FA_CLOCK_O,
 }
 
 

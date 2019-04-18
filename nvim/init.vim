@@ -231,7 +231,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "Latex pdf view"
 let g:livepreview_engine = 'xelatex'
 let g:livepreview_previewer = 'zathura'
-
+"Eclim auto complete 
+let g:EclimCompletionMethod = 'omnifunc'
 
 "UNICODE 8 SUPPORT
 set encoding=utf-8

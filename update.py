@@ -23,12 +23,12 @@ files = {
 for i in dirs:
     source_dir = dirs[i]
     destination_dir = op_dir
-    cmd = "cp -rv"+sep+source_dir+sep+destination_dir
+    cmd = "cp -gr"+sep+source_dir+sep+destination_dir
     os.system(cmd)
 
 
 for i in files:
     source_file = files[i]
     destination_dir = op_dir
-    cmd = "cp -v"+sep+source_file+sep+destination_dir
+    cmd = "cp -g"+sep+source_file+sep+destination_dir
     os.system(cmd)

@@ -42,6 +42,7 @@ import sys
 # most of these are character codes for font awesome:
 #   http://fortawesome.github.io/Font-Awesome/icons/
 FA_CALCULATOR  = '\uf1ec'
+FA_FOLDER      = '\uf07b'
 FA_ECLIPSE     = '\ue79e'
 FA_CHROME      = '\uf268'
 FA_CHROME_ALT  = '\uf7ae'
@@ -71,6 +72,11 @@ FA_MAP_O       = '\uf278'
 FA_DATABASE    = '\uf1c0'
 FA_TELEGRAM    = '\uf2c6'
 FA_CLOCK_O     = '\uf017'
+FA_QUTEBROWSER = '\ue748'
+FA_WORD         = '\uf1c2'
+FA_SPREADSHEET = '\uf5c6'
+FA_SKYPE  = '\uf17e'
+
 WINDOW_ICONS = {
     'tilix'            : FA_TERMINAL,
     'st-256color'      : FA_TERMINAL,
@@ -82,6 +88,7 @@ WINDOW_ICONS = {
     'Telegram'         : FA_TELEGRAM,
     'TelegramDesktop'  : FA_TELEGRAM,
     'google-chrome'    : FA_CHROME,
+    'qutebrowser'      : FA_QUTEBROWSER,
     'min'              : FA_MIN,
     'Chromium-browser' : FA_CHROME_ALT,
     'chromium'         : FA_CHROME,
@@ -94,10 +101,15 @@ WINDOW_ICONS = {
     'Thunderbird'      : FA_ENVELOPE_O,
     'neomutt'          : FA_ENVELOPE_O,
     'libreoffice'      : FA_FILE_TEXT_O,
+    'Wps'              : FA_WORD,
+    'Abiword'          : FA_WORD,
+    'Et'               : FA_SPREADSHEET,
+    'Skype'            : FA_SKYPE,
     'feh'              : FA_PICTURE_O,
     'gcolor2'          : FA_EYEDROPPER,
     'atril'            : FA_FILE_PDF_O,
     'spacefm'          : FA_FILES_O,
+    'Pcmanfm'           : FA_FOLDER,
     'gimp'             : FA_PAINTBRUSH,
     'gimp-2.8'         : FA_PAINTBRUSH,
     'inkscape'         : FA_PAINTBRUSH,

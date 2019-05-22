@@ -15,8 +15,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
-theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "xos4 Terminus 9"
+theme.wallpaper                                 = "/home/vishnu/Pictures/wallpapers/Tech/gnunoise-3.png"
+theme.font                                      = "FantasqueSansMono Nerd Font 11"
 theme.fg_normal                                 = "#FEFEFE"
 theme.fg_focus                                  = "#32D6FF"
 theme.fg_urgent                                 = "#C83F11"
@@ -163,7 +163,7 @@ theme.mail = lain.widget.imap({
 -- ALSA volume
 theme.volume = lain.widget.alsabar({
     --togglechannel = "IEC958,3",
-    notification_preset = { font = "xos4 Terminus 10", fg = theme.fg_normal },
+    notification_preset = { font = "Ubuntu Nerd Font 10", fg = theme.fg_normal },
 })
 
 -- MPD

@@ -85,7 +85,7 @@ local themes = {
     "vertex",          -- 10
 }
 
-local chosen_theme = themes[5]
+local chosen_theme = themes[6]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "st"
@@ -443,44 +443,44 @@ globalkeys = my_table.join(
         end,
         {description = "volume 0%", group = "hotkeys"}),
 
-    -- -- MPD control
-    -- awful.key({ altkey, "Control" }, "Up",
-    --     function ()
-    --         os.execute("mpc toggle")
-    --         beautiful.mpd.update()
-    --     end,
-    --     {description = "mpc toggle", group = "widgets"}),
-    -- awful.key({ altkey, "Control" }, "Down",
-    --     function ()
-    --         os.execute("mpc stop")
-    --         beautiful.mpd.update()
-    --     end,
-    --     {description = "mpc stop", group = "widgets"}),
-    -- awful.key({ altkey, "Control" }, "Left",
-    --     function ()
-    --         os.execute("mpc prev")
-    --         beautiful.mpd.update()
-    --     end,
-    --     {description = "mpc prev", group = "widgets"}),
-    -- awful.key({ altkey, "Control" }, "Right",
-    --     function ()
-    --         os.execute("mpc next")
-    --         beautiful.mpd.update()
-    --     end,
-    --     {description = "mpc next", group = "widgets"}),
-    -- awful.key({ altkey }, "0",
-    --     function ()
-    --         local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
-    --         if beautiful.mpd.timer.started then
-    --             beautiful.mpd.timer:stop()
-    --             common.text = common.text .. lain.util.markup.bold("OFF")
-    --         else
-    --             beautiful.mpd.timer:start()
-    --             common.text = common.text .. lain.util.markup.bold("ON")
-    --         end
-    --         naughty.notify(common)
-    --     end,
-    --     {description = "mpc on/off", group = "widgets"}),
+    -- MPD control
+    awful.key({ altkey, "Control" }, "Up",
+        function ()
+            os.execute("mpc toggle")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc toggle", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Down",
+        function ()
+            os.execute("mpc stop")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc stop", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Left",
+        function ()
+            os.execute("mpc prev")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc prev", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Right",
+        function ()
+            os.execute("mpc next")
+            beautiful.mpd.update()
+        end,
+        {description = "mpc next", group = "widgets"}),
+    awful.key({ altkey }, "0",
+        function ()
+            local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
+            if beautiful.mpd.timer.started then
+                beautiful.mpd.timer:stop()
+                common.text = common.text .. lain.util.markup.bold("OFF")
+            else
+                beautiful.mpd.timer:start()
+                common.text = common.text .. lain.util.markup.bold("ON")
+            end
+            naughty.notify(common)
+        end,
+        {description = "mpc on/off", group = "widgets"}),
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
@@ -501,7 +501,7 @@ globalkeys = my_table.join(
               {description = "show the menubar", group = "launcher"}),
     --]]
     -- dmenu
-    awful.key({ modkey }, "d", function ()
+    awful.key({ modkey }, "x", function ()
             os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
@@ -729,7 +729,7 @@ end)
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+    c:emit_signal("request::activate", "mouse_enter", {raise = true})
 end)
 
 -- No border for maximized clients
@@ -749,7 +749,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 --autostart
 awful.util.spawn_with_shell("compton --config /home/vishnu/.config/compton.config")
--- awful.util.spawn_with_shell("nm-applet")
+awful.util.spawn_with_shell("nm-applet")
 awful.util.spawn_with_shell("python /home/vishnu/get1.py")
 
 -- possible workaround for tag preservation when switching back to default screen:

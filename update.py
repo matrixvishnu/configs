@@ -13,7 +13,8 @@ dirs = {
 "i3_dir"        : home+".config/i3/",
 "mutt_dir"      : home+".config/mutt/",
 "st_dir"        : home+"st/",
-"dotfiles_dir"  : home+"dotfiles/"}
+"dotfiles_dir"  : home+"dotfiles/",
+"polybar_dir"   : home+".config/polybar"}
 files = {
 "xdefaults"     : home+".Xdefaults",
 "zshrc"         : home+".zshrc",

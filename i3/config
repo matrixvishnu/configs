@@ -8,29 +8,41 @@ set $mod Mod4
 #default keyboard repeat is too slow for me
 exec xset r rate 175 25
 
+#wallpaper 
+set $wallpaper ~/Pictures/wallpaper.jpg
 #AUTOSTART STUFF
-exec_always --no-startup-id  python3 ~/dotfiles/.i3/i3-autoname-workspaces.py
-exec --no-startup-id compton --config ~/.config/compton.config
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.*
+#exec_always --no-startup-id  python3 ~/dotfiles/.i3/i3-autoname-workspaces.py
+exec_always --no-startup-id compton --config compton/compton-kawase-blur/compton.sample.conf
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Tech/gnulin_emb_3.png
 exec_always --no-startup-id python ~/get1.py
+exec_always --no-startup-id bash ~/polybar.sh
+#exec --no-startup-id wal -R
+
 
 #Font for window titles.
 font pango:Ubuntu regular 10
 #Colors
-set $back               #383C4A
+set $back               #434343
 set $primary            #D0D0D0
 set $secondary          #0FE0C9
 set $black              #282A2E
 set $grey               #303030
 set $white              #C5C8C6
+set $black1             #000000
+set $bg                 #434343
+set $fg                 #0E86F1
+
+
+#set_from_resource $fg $white  
+#set_from_resource $bg $grey 
 
 # class                 border   backgr.  text    indicator child_border
-client.focused          #00cccc  #151e1e   #00cccc  #2e9ef4   #00cccc
-client.focused_inactive #FFFFFF  #151e1e   #FFFFFF  #484e50   $black
-client.unfocused        #FFFFFF  #151e1e   #FFFFFF  #484e50   $black
-client.urgent           #2f343a  #900000  $white  #900000   #900000
-client.placeholder      #151e1e  #0c0c0c  $white  #151e1e   #0c0c0c
-client.background       $white
+client.focused          $black1   $bg      $black1   $fg     $fg 
+client.focused_inactive $fg       $bg      $fg       $fg     $fg
+client.unfocused        $bg       $bg      $fg     #484e50   $black
+client.urgent           #fg       #900000  $white  #900000   #900000
+client.placeholder      #fg       #0c0c0c  $white  #151e1e   #0c0c0c
+client.background       $fg
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -39,7 +51,7 @@ bindsym $mod+t exec termite
 bindsym $mod+Return exec st
 mouse_warping none
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 # Float Guake to the top of the screen
 # for_window [class="Main.py"] floating enable, border none, move position 0 25
 
@@ -50,7 +62,7 @@ bindsym $mod+Shift+s move scratchpad
 bindsym $mod+s scratchpad show
 
 # i3-gaps stuff :)
-gaps inner 1
+gaps inner 3
 gaps outer 0
 smart_borders on
 new_window none
@@ -73,11 +85,9 @@ mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
         bindsym 0     gaps inner current set 0
-
         bindsym Shift+plus  gaps inner all plus 5
         bindsym Shift+minus gaps inner all minus 5
         bindsym Shift+0     gaps inner all set 0
-
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -203,11 +213,11 @@ workspace "1" output LVDS1
 workspace "2" output LVDS1
 workspace "3" output LVDS1
 workspace "4" output LVDS1
-workspace "5" output VGA1
+workspace "5" output LVDS1
 workspace "6" output VGA1
 workspace "7" output VGA1
-workspace "8" output VGA1
-workspace "9" output VGA1
+workspace "8" output DP1
+workspace "9" output DP1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -259,25 +269,25 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bar {
-    status_command i3blocks -c ~/dotfiles/.i3/i3blocks.conf 2> ~/dotfiles/.i3/.i3blocks.err
-    strip_workspace_numbers no
-    #output eDP-1-1
-    tray_output eDP-1-1
-    mode dock
-    position top
-    height 24
-    font pango:Ubuntu Nerd Font 10
-    colors {
-        background #151e1e
-        separator #00cccc
-        statusline #151e1e
-        focused_workspace #00cccc #151e1e #00cccc
-        active_workspace #151e1e #151e1e #ffffff
-        inactive_workspace #151e1e #151e1e #ffffff
-        urgent_workspace #CC241D #CC241D #EBDBB2
-    }
-}
+#bar {
+#    status_command i3blocks -c ~/dotfiles/.i3/i3blocks.conf 2> ~/dotfiles/.i3/.i3blocks.err
+#    strip_workspace_numbers no
+#    #output eDP-1-1
+#    tray_output eDP-1-1
+#    mode dock
+#    position top
+#    height 24
+#    font pango:Ubuntu Nerd Font 10
+#    colors {
+#        background $bg 
+#        separator #11ffff
+#        statusline $bg
+#        focused_workspace $fg $bg $fg
+#        active_workspace #000000 #151e1e #ffffff
+#        inactive_workspace $bg $bg $fg 
+#        urgent_workspace #CC241D #CC241D #EBDBB2
+#    }
+#}
 
 # vim:filetype=i3
 

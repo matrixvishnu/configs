@@ -13,14 +13,14 @@ set $wallpaper ~/Pictures/wallpaper.jpg
 #AUTOSTART STUFF
 #exec_always --no-startup-id  python3 ~/dotfiles/.i3/i3-autoname-workspaces.py
 exec_always --no-startup-id compton --config compton/compton-kawase-blur/compton.sample.conf
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Tech/gnulin_emb_3.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bench_at_the_american_museum_of_natural_history_by_james_pond.jpg
 exec_always --no-startup-id python ~/get1.py
 exec_always --no-startup-id bash ~/polybar.sh
 #exec --no-startup-id wal -R
 
 
 #Font for window titles.
-font pango:Ubuntu regular 10
+font pango:Roboto Bold 10
 #Colors
 set $back               #434343
 set $primary            #D0D0D0
@@ -29,17 +29,17 @@ set $black              #282A2E
 set $grey               #303030
 set $white              #C5C8C6
 set $black1             #000000
-set $bg                 #434343
-set $fg                 #0E86F1
+set $bg                 #0375FC
+set $fg                 #FFFFFF
 
 
 #set_from_resource $fg $white  
 #set_from_resource $bg $grey 
 
 # class                 border   backgr.  text    indicator child_border
-client.focused          $black1   $bg      $black1   $fg     $fg 
+client.focused          $bg       $bg      $black1   $fg     $bg 
 client.focused_inactive $fg       $bg      $fg       $fg     $fg
-client.unfocused        $bg       $bg      $fg     #484e50   $black
+client.unfocused        $grey     $grey      $fg     #484e50   $black
 client.urgent           #fg       #900000  $white  #900000   #900000
 client.placeholder      #fg       #0c0c0c  $white  #151e1e   #0c0c0c
 client.background       $fg
@@ -47,7 +47,7 @@ client.background       $fg
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 popup_during_fullscreen smart
-bindsym $mod+t exec termite
+bindsym $mod+t exec tilix
 bindsym $mod+Return exec st
 mouse_warping none
 

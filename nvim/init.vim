@@ -18,10 +18,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'davidhalter/jedi-vim'
 
-  Plug 'roxma/nvim-yarp'
-  Plug 'ncm2/ncm2-bufword'
-  Plug 'ncm2/ncm2-path'
-  Plug 'ncm2/ncm2-jedi'
+ " Plug 'roxma/nvim-yarp'
+ " Plug 'ncm2/ncm2-bufword'
+ " Plug 'ncm2/ncm2-path'
+ " Plug 'ncm2/ncm2-jedi'
   " Formater
   Plug 'Chiel92/vim-autoformat'
   "Auto close perenthesis quotes braces etc
@@ -29,6 +29,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'NLKNguyen/papercolor-theme'
+  "Icons 
+  Plug 'ryanoasis/vim-devicons'
+
 
 
   call plug#end()
@@ -121,8 +124,8 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 "Theme
-colorscheme molokai
-highlight Comment cterm=bold
+"colorscheme molokai
+"highlight Comment cterm=bold
 
 "UNICODE 8 SUPPORT
 set encoding=utf-8

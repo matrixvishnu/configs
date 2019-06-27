@@ -13,7 +13,7 @@ set $wallpaper ~/Pictures/wallpaper.jpg
 #AUTOSTART STUFF
 #exec_always --no-startup-id  python3 ~/dotfiles/.i3/i3-autoname-workspaces.py
 exec_always --no-startup-id compton --config compton/compton-kawase-blur/compton.sample.conf
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/bench_at_the_american_museum_of_natural_history_by_james_pond.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Unsorted/Comfy_34.jpg
 exec_always --no-startup-id python ~/get1.py
 exec_always --no-startup-id bash ~/polybar.sh
 #exec --no-startup-id wal -R
@@ -59,7 +59,7 @@ for_window [class="^.*"] border pixel 0
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+s move scratchpad
 # Show the first scratchpad window
-bindsym $mod+s scratchpad show
+bindsym $mod+z scratchpad show
 
 # i3-gaps stuff :)
 gaps inner 3
@@ -252,18 +252,18 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym $vi_left resize shrink width 2 px or 2 ppt
-    bindsym $vi_up resize grow height 2 px or 2 ppt
-    bindsym $vi_down resize shrink height 2 px or 2 ppt
-    bindsym $vi_right resize grow width 2 px or 2 ppt
+    bindsym $vi_left resize shrink width 4 px or 4 ppt
+    bindsym $vi_up resize grow height 4 px or 4 ppt
+    bindsym $vi_down resize shrink height 4 px or 4 ppt
+    bindsym $vi_right resize grow width 4 px or 4 ppt
     # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 2 px or 2 ppt
-    bindsym Down resize grow height 2 px or 2 ppt
-    bindsym Up resize shrink height 2 px or 2 ppt
-    bindsym Right resize grow width 2 px or 2 ppt
+    bindsym Left resize shrink width 4 px or 4 ppt
+    bindsym Down resize grow height 4 px or 4 ppt
+    bindsym Up resize shrink height 4 px or 4 ppt
+    bindsym Right resize grow width 4 px or 4 ppt
 
     # back to normal: Enter or Escape
-    bindsym Return mode "default"
+    bindsym Return mode "default
     bindsym Escape mode "default"
 }
 

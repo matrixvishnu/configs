@@ -11,7 +11,10 @@ call plug#begin('~/.vim/plugged')
   "Align Plugin
   Plug 'vim-scripts/Align'
   " syntax check
-  Plug 'w0rp/ale'
+  " Plug 'w0rp/ale'
+  " Python Mode 
+  " Python Mode For syntax highlight And Indent
+  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
   " Autocomplete
   Plug 'ncm2/ncm2'
   Plug 'zchee/deoplete-jedi'
@@ -31,6 +34,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'NLKNguyen/papercolor-theme'
   "Icons 
   Plug 'ryanoasis/vim-devicons'
+  "Latex
+  Plug 'lervag/vimtex'
+
 
 
 
@@ -84,6 +90,9 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+" python2 execution
+nnoremap <F5> :echo system('python2 "' . expand('%') . '"')<cr>
+
 "------------------------------------------------------------
 "Auto Close Perenthasis"
 "inoremap {      {}<Left>
@@ -102,14 +111,15 @@ noremap <F3> :Autoformat<CR>
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
+
 " NCM2
 " Ale
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['flake8']}
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_linters = {'python': ['flake8']}
 
 "Nerd Tree
 let g:nerdtree_tabs_open_on_console_startup=1
@@ -117,17 +127,47 @@ let g:nerdtree_tabs_open_on_gui_startup = 1
 "airline statusline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = ''
 " airline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+
+" Latex PDF previw and compilation
+let g:vimtex_view_general_viewer = 'zathura'
+" custom bindings 
+" To map <Esc> to exit terminal-mode:
+    :tnoremap <Esc> <C-\><C-n>
+" To use `ALT+{h,j,k,l}` to navigate windows from any mode:
+    :tnoremap <A-h> <C-\><C-N><C-w>h
+    :tnoremap <A-j> <C-\><C-N><C-w>j
+    :tnoremap <A-k> <C-\><C-N><C-w>k
+    :tnoremap <A-l> <C-\><C-N><C-w>l
+    :inoremap <A-h> <C-\><C-N><C-w>h
+    :inoremap <A-j> <C-\><C-N><C-w>j
+    :inoremap <A-k> <C-\><C-N><C-w>k
+    :inoremap <A-l> <C-\><C-N><C-w>l
+    :nnoremap <A-h> <C-w>h
+    :nnoremap <A-j> <C-w>j
+    :nnoremap <A-k> <C-w>k
+    :nnoremap <A-l> <C-w>l
 "Theme
-"colorscheme molokai
+colorscheme corporation_mod3
 "highlight Comment cterm=bold
 
 "UNICODE 8 SUPPORT
-set encoding=utf-8
+"set encoding=utf-8
 "PYHON HIGHLIGHT
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+
 let python_highlight_all=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+    set t_8f=\[[38;2;%lu;%lu;%lum
+    set t_8b=\[[48;2;%lu;%lu;%lum
+    set termguicolors
+endif
+
+

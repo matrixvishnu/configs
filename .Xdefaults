@@ -7,7 +7,7 @@ urxvt.scrollBar: false
 ! urxvt.font: xft:DejaVu Sans Mono:pixelsize=13
 ! urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:weight=bold
 ! URxvt.font: xft:Meslo LGM Nerdfont:size=12
-URxvt.font: xft:UbuntuMono Nerd Font Mono:style=Regular:size=12
+Urxvt.font: xft:UbuntuMono Nerd Font Mono:style=Regular:size=12
 URxvt.boldFont: xft:UbuntuMono Nerd Font:style=Regular:size=12
 urxvt.letterSpace: 0
 !! Larger history limit
@@ -24,72 +24,41 @@ URxvt.keysym.Control-0x2d: perl:font-size:decrease
 
 URxvt.keysym.M-s: perl:keyboard-select:search
 
-!! Yeah, I am one of those, who use these keys in Vim :-(
-! urxvt.keysym.Home:          \033[1~
-! urxvt.keysym.End:           \033[4~
-! urxvt.keysym.Control-Up:    \033[1;5A
-! urxvt.keysym.Control-Down:  \033[1;5B
-! urxvt.keysym.Control-Left:  \033[1;5D
-! urxvt.keysym.Control-Right: \033[1;5C
 
-!! Tango color theme
-!! Strange - it matches tango from gnome-terminal, but looks different
-! URxvt.color0: rgb:00/00/00
-! URxvt.color1: rgb:CC/00/00
-! URxvt.color2: rgb:4E/9A/06
-! URxvt.color3: rgb:C4/A0/00
-! URxvt.color4: rgb:34/65/A4
-! URxvt.color5: rgb:75/50/7B
-! URxvt.color6: rgb:06/98/9A
-! URxvt.color7: rgb:D3/D7/CF
-! URxvt.color8: rgb:55/57/53
-! URxvt.color9: rgb:EF/29/29
-! URxvt.color10: rgb:8A/E2/34
-! URxvt.color11: rgb:FC/E9/4F
-! urxvt.keysym.Home:          \033[1~
-! urxvt.keysym.End:           \033[4~
-! URxvt.color12: rgb:72/9F/CF
-! URxvt.color13: rgb:AD/7F/A8
-! URxvt.color14: rgb:34/E2/E2
-! URxvt.color15: rgb:EE/EE/EC
-! URxvt.colorBD: rgb:ff/ff/ff
-
-!color scheme
-!#include </home/vishnu/xcolors/OK100Matrix.Xcolors>
 ! special
-*.foreground:   #00fcdf
-*.background:   #000000
-*.cursorColor:  #00fcdf
+urxvt.color257:   #06f1a6
+urxvt.color258:   #011615
+urxvt.cursorColor:  #06f1a6
 
 ! black
-*.color0:       #191927
-*.color8:       #905749
+urxvt.color0:       #0aed5a
+urxvt.color8:       #919c56
 
 ! red
-*.color1:       #282f5e
-*.color9:       #94431c
+urxvt.color1:       #ed155b
+urxvt.color9:       #93a03d
 
 ! green
-*.color2:       #2b4593
-*.color10:      #9f2a7c
+urxvt.color2:       #202623
+urxvt.color10:      #58bed4
 
 ! yellow
-*.color3:       #344276
-*.color11:      #35ff2b
+urxvt.color3:       #363f3b
+urxvt.color11:      #b0a3de
 
 ! blue
-*.color4:       #4e3a4f
-*.color12:      #e1750f
+urxvt.color4:       #53605a
+urxvt.color12:      #d954a7
 
 ! magenta
-*.color5:       #61372f
-*.color13:      #eaaf25
+urxvt.color5:       #a009f3
+urxvt.color13:      #d58d64
 
 ! cyan
-*.color6:       #6b484c
-*.color14:      #fa8e08
+urxvt.color6:       #c1ec0e
+urxvt.color14:      #f46200
 
 ! white
-*.color7:       #744537
-*.color15:      #fca806
+urxvt.color7:       #cde9dc
+urxvt.color15:      #0000f5
 

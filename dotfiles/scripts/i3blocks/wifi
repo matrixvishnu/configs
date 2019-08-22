@@ -8,9 +8,9 @@ then
     if [[ $CONNECTED ]]
     then
         STRENGTH=$(nmcli device wifi | grep -e '*' | awk '{ if (! /SSID/) print $8 }')
-        echo " $STRENGTH% @$SSID"
+        echo "﬉ $STRENGTH% @$SSID"
     else
-        echo " No Wifi"
+        echo "﬉ No Wifi"
     fi
 elif [ ! $ENABLED ]
 then

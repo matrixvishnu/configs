@@ -2,15 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/vishnu/.oh-my-zsh
-
+export ZSH=/home/vishnu/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="fino"
 
 POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="arrow"
+ZSH_THEME=powerlevel10k/powerlevel10k
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -31,7 +30,7 @@ ZSH_THEME="arrow"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
  COMPLETION_WAITING_DOTS="true"
@@ -68,7 +67,7 @@ source $ZSH/oh-my-zsh.sh
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='nvim'
  else
-   export EDITOR='mvim'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags
@@ -83,7 +82,13 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zsh_conf="nvim ~/.zshrc"
+alias nvim_conf="nvim ~/.config/nvim/init.vim"
+alias i3_conf="nvim ~/.config/i3/config"
+alias polybar_conf="nvim ~/.config/polybar/config"
+alias pythonscripts="cd ~/Documents/python_scripts"
+alias st_conf="nvim ~/st/config.h"
+alias mutt_conf="nvim ~/.config/mutt/muttrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
@@ -96,10 +101,10 @@ POWERLEVEL9K_CHANGESET_HASH_LENGTH=6
 POWERLEVEL9K_SHOW_CHANGESET=true
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=""
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰"
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=""
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
 
 
 
@@ -136,15 +141,15 @@ POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='teal'
 POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='236'
 # Prompts
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('os_icon' 'dir' 'vcs'
-'dir_writable' )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('time' 'vi_mode')
+'dir_writable' 'disk_usage' )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('time')
 
 
 # `Pyenv` is deprecated, use `python -v` instead
 
 
 # enable vi mode
-set -o vi
+# set -o vi
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/vishnu/google-cloud-sdk/path.zsh.inc' ]; then . '/home/vishnu/google-cloud-sdk/path.zsh.inc'; fi
 

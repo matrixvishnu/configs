@@ -1,0 +1,412 @@
+rn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background     = #aa222
+background-alt = #444
+foreground     = #dfdfdf
+foreground-alt = #555
+fgalt          = #000000
+workspace-active-background = #87FF00
+workspace-active-foreground = #000000
+workspace-inactive-background = #022761
+workspace-inactive-foreground = #000000
+title-background =#FF0445 
+title-foreground =#000000
+fsbaground = #FFB900
+brightness-background = #8700FF
+volbackground = #FF4600
+keyboard = #1FFF00
+ram = #FE0686
+cpu = #05F392
+net = #F7FA04
+bat = #D504FA
+temp = #FD1F00
+date = #7FFD00
+primary        = #ffb52a
+secondary      = #e60053
+alert          = #bd2c40
+
+[bar/example]
+width               = 100%
+height              = 18
+fixed-center        = true
+
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+
+line-size           = 0
+line-color          = ${colors.background}
+
+border-size         = 0
+border-color        = #0000000
+
+padding-left        = 0
+padding-right       = 0
+
+module-margin-left  = 0
+module-margin-right = 0
+
+border-top-size = 4
+border-bottom-size = 2
+border-bottom-color = ${colors.background}
+border-top-color = ${colors.background}
+
+;font-0 = Ubuntu Nerd Font:pixelsize=10;3
+;font-1 = Ubuntu Nerd Font:pixelsize=10;3
+;font-2 = Ubuntu Nerd Font:pixelsize=10;3
+
+font-0 = "Roboto:size=10:weight=bold;3"
+font-1 = "Material Icons:size=7;3"
+font-2 = Iosevka Nerd Font:style=bold:size=11;2
+
+modules-left   = space workspaceleft_arrow i3 titleleft_arrow xwindow titleright_arrow
+modules-right  = fsleft_arrow mail fsright_arrow xbacklight volleft_arrow volume keyleft_arrow keyright_arrow memory ramright_arrow cpu cpuright_arrow wlan netright_arrow battery batright_arrow temperature tempright_arrow date dateright_arrow 
+
+tray-position      = right
+tray-padding       = 2
+tray-transparent  = true
+tray-background   = #0063ff
+wm-restack        = i3
+scroll-up         = i3wm-wsnext
+scroll-down       = i3wm-wsprev
+
+;==Seperators==
+;===PowerArrow=== 
+[module/workspaceleft_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.workspace-inactive-background}
+
+
+[module/workspaceright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.workspace-active-background}
+
+[module/titleright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.title-background}
+
+[module/titleleft_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.title-background}
+content-foreground = ${colors.workspace-inactive-background}
+
+[module/fsright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.ram}
+content-foreground = ${colors.brightness-background}
+
+[module/fsleft_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.ram}
+
+[module/brightnessright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.brightness-background}
+content-foreground = ${colors.volbackground}
+
+
+[module/volright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.volbackground}
+
+[module/volleft_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.brightness-background}
+content-foreground = ${colors.volbackground}
+
+
+[module/keyright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.keyboard}
+content-foreground = ${colors.ram}
+
+[module/keyleft_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.volbackground}
+content-foreground = ${colors.keyboard}
+
+
+[module/ramright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.ram}
+content-foreground = ${colors.cpu}
+
+
+
+[module/cpuright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.cpu}
+content-foreground = ${colors.net}
+
+
+
+[module/netright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.net}
+content-foreground = ${colors.bat}
+
+
+[module/batright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.bat}
+content-foreground = ${colors.temp}
+
+[module/tempright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.temp}
+content-foreground = ${colors.date}
+[module/dateright_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.date}
+[module/dateleft_arrow]
+type = custom/text
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.date}
+;===space ====
+[module/space]
+type = custom/text
+content = " "
+content-background = ${colors.background}
+content-foreground = ${colors.workspace-active-background}
+
+;====MODULES====
+;================
+[module/xwindow]
+type               = internal/xwindow
+label              = "%title:0:30:...%"
+label-background   = ${colors.title-background}
+label-foreground   = ${colors.title-foreground}
+[module/mail]
+type = custom/script
+exec = python3 /home/vishnu/mailsync.py 
+interval = 5
+format-prefix                  = ""
+format-prefix-font             = 2
+format-prefix-foreground       = ${colors.fgalt}
+format-prefix-background       = ${colors.ram}
+format-background       = ${colors.ram}
+format-foreground       = ${colors.fgalt}
+click-left = st -e neomutt 
+
+
+[module/i3]
+type                     = internal/i3
+format                   = <label-state> <label-mode>
+index-sort               = true
+wrapping-scroll          = false
+label-mode-padding       = 0
+label-mode-foreground    = #000
+label-mode-background    = ${colors.workspace-active-background}
+label-focused            = "%index%" 
+label-focused-foreground = ${colors.workspace-inactive-background}
+label-focused-background = ${colors.workspace-active-background}
+label-focused-padding    = 0
+label-unfocused          =  "  %index%  "  
+label-unfocused-background = ${colors.workspace-inactive-background}
+label-unfocused-foreground = ${colors.workspace-active-background}
+label-unfocused-padding  = 0
+label-visible            = V %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline  = ${self.label-focused-background}
+label-visible-padding    = 0
+label-urgent             = %index%!
+label-urgent-background  = ${colors.alert}
+label-urgent-padding     = 2
+
+
+[module/xbacklight]
+type                     = internal/xbacklight
+format                   = <label><bar>
+label                    = 
+label-font               = 1
+label-foreground         = ${colors.fgalt}
+label-background         = ${colors.brightness-background}
+bar-width                = 15
+bar-indicator            = 
+bar-indicator-foreground = ${colors.fgalt}
+bar-indicator-background = ${colors.brightness-background}
+bar-indicator-font       = 2
+bar-fill                 = |
+bar-fill-font            = 2
+bar-fill-foreground      = ${colors.brightness-background}
+bar-fill-background      = ${colors.brightness-background}
+bar-empty                = -
+bar-empty-font           = 2
+bar-empty-foreground     = ${colors.brightness-background}
+bar-empty-background     = ${colors.brightness-background}
+
+[module/backlight-acpi]
+inherit                 = module/xbacklight
+type                    = internal/backlight
+card                    = intel_backlight
+
+[module/cpu]
+type                           = internal/cpu
+interval                       = 2
+format-prefix                  = "礪"
+format-prefix-foreground       = ${colors.fgalt}
+format-prefix-background       = ${colors.cpu}
+label-foreground               = ${colors.fgalt}
+label-background               = ${colors.cpu}
+label                          = %percentage%%
+
+[module/memory]
+type                           = internal/memory
+interval                       = 2
+format-prefix                  = ""
+format-prefix-font             = 2
+format-prefix-foreground       = ${colors.fgalt}
+format-prefix-background       = ${colors.ram}
+label-foreground               = ${colors.fgalt}
+label-background               = ${colors.ram}
+label                          = %mb_used%/%mb_total%
+
+
+[module/wlan]
+type                           = internal/network
+interface                      = wlp3s0
+interval                       = 3.0
+format-connected               = <ramp-signal><label-connected>
+label-connected                = %essid%%downspeed:9%
+label-connected-foreground     = ${colors.fgalt}
+label-connected-background     = ${colors.net}
+label-disconnected             = ﲁ
+label-disconnected-foreground     = ${colors.fgalt}
+label-disconnected-background     = ${colors.net}
+
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 直
+ramp-signal-3 = ﬉
+ramp-signal-4 = ﬉
+ramp-signal-foreground = ${colors.fgalt}
+ramp-signal-background = ${colors.net}
+click-left = st -e nmtui connect
+
+[module/date]
+type = custom/script
+format-prefix = ""
+format-prefix-foreground = ${colors.fgalt}
+format-prefix-background = ${colors.date}
+format-foreground = ${colors.fgalt}
+format-background = ${colors.date}
+exec = ~/.config/polybar/calender.sh
+interval = 5
+click-left = zenity --calendar
+
+[module/volume]
+type = internal/volume
+format-volume = <label-volume><bar-volume>
+label-volume = 
+label-volume-foreground = ${colors.fgalt}
+label-volume-background = ${colors.volbackground}
+format-muted-prefix = "婢 "
+format-muted-foreground = ${colors.fgalt}
+format-muted-background = ${colors.volbackground}
+label-muted = MUTE
+bar-volume-width = 15
+bar-volume-background =${colors.volbackground} 
+bar-volume-gradient = true
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = ${colors.fgalt}
+bar-volume-indicator-background = ${colors.volbackground}
+bar-volume-fill = -
+bar-volume-fill-foreground = ${colors.volbackground}
+bar-volume-fill-background = ${colors.volbackground}
+bar-volume-fill-font = 2
+bar-volume-empty = -
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.volbackground}
+bar-volume-empty-background = ${colors.volbackground}
+
+[module/battery]
+type             = internal/battery
+battery          = BAT0
+adapter          = ADP1
+full-at          = 98
+format-charging               = <animation-charging><label-charging>
+format-discharging            = <ramp-capacity><label-discharging>
+label-charging-foreground = ${colors.fgalt}
+label-charging-background = ${colors.bat}
+label-discharging-foreground = ${colors.fgalt}
+label-discharging-background = ${colors.bat}
+format-full-prefix            = ""
+format-full-prefix-foreground = ${colors.fgalt}
+format-full-prefix-background = ${colors.bat}
+label-full = %percentage%%
+label-full-foreground = ${colors.fgalt}
+label-full-background = ${colors.bat}
+ramp-capacity-0 = ﮤ
+ramp-capacity-1 = ﮤ
+ramp-capacity-2 = ﮤ
+ramp-capacity-3 = ﮤ
+ramp-capacity-4 = ﮤ
+ramp-capacity-foreground = ${colors.fgalt}
+ramp-capacity-background = ${colors.bat}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-capacity-3 = 
+animation-charging-foreground = ${colors.fgalt}
+animation-charging-background = ${colors.bat}
+animation-charging-framerate = 750
+
+[module/temperature]
+type                  = internal/temperature
+thermal-zone          = 0
+warn-temperature      = 60
+format-prefix                  = ""
+format-prefix-foreground       = ${colors.fgalt}
+format-prefix-background       = ${colors.temp}
+label-foreground               = ${colors.fgalt}
+label-background               = ${colors.temp}
+label                 = %temperature%
+label-warn            = %temperature%
+label-warn-foreground = ${colors.fgalt}
+label-warn-background = ${colors.temp}
+
+
+[settings]
+screenchange-reload     = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border     = over
+
+[global/wm]
+margin-top              = 4
+margin-bottom           = 0
+
+; vim:filetype=dosini

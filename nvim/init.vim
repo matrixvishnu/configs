@@ -36,6 +36,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'ryanoasis/vim-devicons'
   "Latex
   Plug 'lervag/vimtex'
+  Plug 'dhruvasagar/vim-table-mode'
+  Plug 'mboughaba/i3config.vim'
 
 
 
@@ -170,4 +172,6 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
+set splitbelow
+set splitright
 

@@ -11,9 +11,9 @@ exec xset r rate 175 25
 #wallpaper 
 set $wallpaper ~/Pictures/wallpaper.jpg
 #AUTOSTART STUFF
-#exec_always --no-startup-id  python3 ~/dotfiles/.i3/i3-autoname-workspaces.py
-exec_always --no-startup-id compton --config compton/compton-kawase-blur/compton.sample.conf
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Unsorted/Comfy_34.jpg
+exec_always --no-startup-id  python3 ~/dotfiles/.i3/i3-autoname-workspaces.py
+exec_always --no-startup-id compton --config ~/compton.conf
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/Tech/arch_layers.png
 exec_always --no-startup-id python ~/get1.py
 exec_always --no-startup-id bash ~/polybar.sh
 #exec --no-startup-id wal -R
@@ -29,17 +29,17 @@ set $black              #282A2E
 set $grey               #303030
 set $white              #C5C8C6
 set $black1             #000000
-set $bg                 #0375FC
-set $fg                 #FFFFFF
+set $bg                 #152339 
+set $fg                 #06B0EB
 
 
 #set_from_resource $fg $white  
 #set_from_resource $bg $grey 
 
 # class                 border   backgr.  text    indicator child_border
-client.focused          $bg       $bg      $black1   $fg     $bg 
+client.focused          $fg       $fg      $black1   $fg     $fg 
 client.focused_inactive $fg       $bg      $fg       $fg     $fg
-client.unfocused        $grey     $grey      $fg     #484e50   $black
+client.unfocused        $bg       $bg      $fg       $bg     $bg
 client.urgent           #fg       #900000  $white  #900000   #900000
 client.placeholder      #fg       #0c0c0c  $white  #151e1e   #0c0c0c
 client.background       $fg
@@ -51,9 +51,9 @@ bindsym $mod+t exec tilix
 bindsym $mod+Return exec st
 mouse_warping none
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 # Float Guake to the top of the screen
-# for_window [class="Main.py"] floating enable, border none, move position 0 25
+for_window [class="Zenity"] floating enable, border none, move position 1038 25
 
 # Scratchpad stuff
 # Make the currently focused window a scratchpad
@@ -277,15 +277,15 @@ bindsym $mod+r mode "resize"
 #    mode dock
 #    position top
 #    height 24
-#    font pango:Ubuntu Nerd Font 10
+#    font pango:Iosevka Nerd Font bold 10
 #    colors {
-#        background $bg 
+#        background #152339 
 #        separator #11ffff
-#        statusline $bg
-#        focused_workspace $fg $bg $fg
-#        active_workspace #000000 #151e1e #ffffff
-#        inactive_workspace $bg $bg $fg 
-#        urgent_workspace #CC241D #CC241D #EBDBB2
+#        statusline $background
+#        focused_workspace #06B0EB #06B0EB #152339
+#        active_workspace #152339 #152339 #06B0EB
+#        inactive_workspace #152339 #152339 #06B0EB
+#        urgent_workspace #EB0622 #EB0622 #000000
 #    }
 #}
 
